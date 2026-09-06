@@ -10,3 +10,7 @@
 
 #Any PDF files for assignments
 *.pdf
+
+#Archived files
+*.zip
+*.tar
