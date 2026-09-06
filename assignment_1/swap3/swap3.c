@@ -44,5 +44,15 @@ int main()
     printf("the new value of a = %d\n", a);
     printf("the new value of b = %d\n", b);
     printf("the new value of c = %d\n", c);
+    // * doing the swap3 funct but only swapping two
+    int d = 10;
+    int e = 20;
+    printf("the value of d = %d\n", d);
+    printf("the value of e = %d\n", e);
+    // * send one of the addresses twice.
+    swap3(&d, &e, &d);
+    // * checking the new values are correct
+    printf("the new value of d = %d\n", d);
+    printf("the new value of e = %d\n", e);
     return 0;
 }
