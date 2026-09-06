@@ -7,3 +7,6 @@
 
 #Debugger / misc
 *.dSYM/
+
+#Any PDF files for assignments
+*.pdf
