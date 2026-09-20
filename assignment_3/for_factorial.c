@@ -2,11 +2,15 @@
 #include <stdlib.h>
 void for_factorial (int user_int_input, long long * factorial);
 
+//function to find factorial with a for loop
 void for_factorial (int user_int_input, long long * factorial){
+    //initilize lowers factorial which is 1
     long long factorial_multiple = 1;
+    // loop through factorial to find factorial
     for(int i = 1; i  <= user_int_input; i++){
         factorial_multiple *= i;
     }
+    //set factorial to answer
     *factorial = factorial_multiple;
 }
 //function that takes in an input from the command line from a user when prompted
@@ -17,6 +21,7 @@ void user_int_input_funct(int * user_int_input){
     char extra_input;
     // while loop that is always true
     while(1){
+        //input 21 is too big for long long
         printf("-----Please enter a single integer between 1 and 20-----\n");
         //gets user input and puts that input into stdin
         fgets(user_input, sizeof(user_input), stdin);

@@ -2,13 +2,18 @@
 #include <stdlib.h>
 void while_factorial (int user_int_input, long long * factorial);
 
+//while loop factorial function
 void while_factorial (int user_int_input, long long * factorial){
+    // create itorator
     int i = 1;
+    //create factorial multiple
     long long factorial_multiple = 1;
+    //loop through user int
     while(i <= user_int_input){
         factorial_multiple *= i;
         i++;
     }
+    //set factorial
     *factorial = factorial_multiple;
 }
 //function that takes in an input from the command line from a user when prompted
@@ -19,6 +24,7 @@ void user_int_input_funct(int * user_int_input){
     char extra_input;
     // while loop that is always true
     while(1){
+        //long long not large enough for 21!
         printf("-----Please enter a single integer between 1 and 20-----\n");
         //gets user input and puts that input into stdin
         fgets(user_input, sizeof(user_input), stdin);

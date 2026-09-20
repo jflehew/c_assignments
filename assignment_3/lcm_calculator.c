@@ -1,14 +1,18 @@
 #include <stdio.h>
 void lcm_calculator(int user_int_input_1, int user_int_input_2, int * gcd);
 
+//function to calc lcm
 void lcm_calculator(int user_int_input_1, int user_int_input_2, int * gcd){
+    //tests to find the smaller int
     int smaller_int;
     if(user_int_input_1 <= user_int_input_2){
         smaller_int = user_int_input_1;
     }else{
         smaller_int = user_int_input_2;
     }
+    //loops through smaller int starting at 2
     for(int i = 2; i <= smaller_int; i++){
+        //if both values are divisible by i, it is lcm and return
         if(user_int_input_1 % i == 0 && user_int_input_2 % i == 0){
             *gcd = i;
             return;

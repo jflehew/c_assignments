@@ -1,14 +1,18 @@
 #include <stdio.h>
 void gcd_calculator(int user_int_input_1, int user_int_input_2, int * gcd);
 
+//function to test gcd
 void gcd_calculator(int user_int_input_1, int user_int_input_2, int * gcd){
+    //find smaller int
     int smaller_int;
     if(user_int_input_1 <= user_int_input_2){
         smaller_int = user_int_input_1;
     }else{
         smaller_int = user_int_input_2;
     }
+    //loop backwards through smaller int
     for(int i = smaller_int; i >= 1; i--){
+        //if common denominator set gcd and return
         if(user_int_input_1 % i == 0 && user_int_input_2 % i == 0){
             *gcd = i;
             return;
