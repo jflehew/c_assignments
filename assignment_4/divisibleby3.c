@@ -8,18 +8,18 @@ void divisible_by_3(int upper, int lower){
         return;
     }
     if(upper % 3 == 0){
-        printf("%d is divisible by 3", upper);
+        printf("%d is divisible by 3\n", upper);
     }
-    divisible_by_3(upper--, lower);
+    divisible_by_3(upper -= 1, lower);
 }
 
 void set_upper_lower(int user_input_1, int user_input_2){
     int upper;
     int lower;
     if(user_input_1 == user_input_2){
-        printf("-----Your numbers were the same-----");
+        printf("-----Your numbers were the same-----\n");
         if(user_input_1 % 3 == 0){
-            printf("your number %d is divisible by three", user_input_1);
+            printf("your number %d is divisible by three\n", user_input_1);
             return;
         }else{
             printf("Your number %d is not divisible by 3\n", user_input_1);
@@ -60,6 +60,7 @@ void user_int_input_funct(int * user_int_input_1, int * user_int_input_2){
 int main(){
     int user_int_input_1, user_int_input_2;
     user_int_input_funct(&user_int_input_1, &user_int_input_2);
+    set_upper_lower(user_int_input_1, user_int_input_2);
     printf("-----you have completed your function-----");
     return 0;
 }
