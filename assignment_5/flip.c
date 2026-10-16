@@ -5,6 +5,12 @@
 int print_and_test_arrays(int input_array[], int output_array[], int length);
 
 int flip(int input_array[], int output_array[], int length){
+    if(length > 100 || length == 0){
+        return -1;
+    }
+    if(input_array == NULL || output_array == NULL){
+        return -1;
+    }
     assert(length <= 100);
     assert(input_array != NULL);
     assert(output_array != NULL);
