@@ -17,8 +17,9 @@
  * %u for an unsigned int
  * scanf( )
  * scanf() reads from the console input
- * 
-    
+ * FILE* fp is a pointer to a file
+ * fopen(file.name) opens a file to read or write from "r" or "w"
+ *  
 */ 
 
 
