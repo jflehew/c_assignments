@@ -12,7 +12,7 @@ int mean_length_funct(char *test_string, float *mean_length){
     int total_chars = 0;
     int length = strlen(test_string);
     for(int i = 0; i < length; i++){
-        if(test_string[i] == ' ' || test_string[i] != '\n'){
+        if(isspace(test_string[i])){
             if(char_count != 0){
                 total_chars += char_count;
                 word_count++;
