@@ -478,3 +478,63 @@ int diagonal(matrix const * v, matrix * mtx) {
         setE(mtx, row, col, 0.0);
   return 0;
 }
+
+/* Return 1 if mtx is square and symmetric and 0
+ * otherwise (including if mtx is null).
+ */
+int symmetric(matrix const * mtx){
+  if(!mtx){
+    return -1;
+  }
+  return (*mtx).rows != (*mtx).cols ? 0: 1;
+}
+
+/* Returns column col of mtx as a new vector. Returns NULL
+ * if mtx is NULL or col is inconsistent with mtx's
+ * dimensions.
+ */
+matrix * getColumn(matrix const * mtx, int col){
+  if(!mtx || (*mtx).cols < col){
+    return NULL;
+  }
+  matrix * col_matrix = newMatrix(1, col);
+  int rows = (*mtx).rows;
+  double element = 0;
+  for(int i = 0; i < rows; i++){
+    getElement(mtx, i+1, col, &element);
+    (*col_matrix).data[i] = element;
+    element = 0;
+  }
+  if(printMatrix(col_matrix)) return NULL;
+  return col_matrix;
+}
+
+/* Returns row row of mtx as a row vector. Returns NULL
+ * if mtx is NULL or row is inconsistent with mtx's
+ * dimensions.
+ */
+matrix * getRow(matrix const * mtx, int row){
+  if(!mtx || (*mtx).rows < row){
+    return NULL;
+  }
+
+  matrix * row_matrix = newMatrix(row, 1);
+  if(row_matrix == NULL) return NULL;
+  int cols = (*mtx).cols;
+  double element = 0;
+  for(int i = 0; i < cols; i++){
+    getElement(mtx, row, i+1, &element);
+    (*row_matrix).data[i] = element;
+    element = 0;
+  }
+  if(printMatrix(row_matrix)) return NULL;
+  return row_matrix;
+}
+
+/* Sets each element of mtx to the product of that element
+ * with s. Returns -1 if mtx is NULL and 0 otherwise.
+ */
+int scalarProduct(double s, matrix * mtx){
+  return 0;
+
+}
