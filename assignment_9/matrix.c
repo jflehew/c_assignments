@@ -234,12 +234,197 @@ void testBasic(void) {
 }
 
 void testSymmetric(void) {
+  matrix * test_one, * test_two;
+  int err; 
+  test_one = newMatrix(3, 3); assert(test_one);
+  err = setElement(test_one, 1, 1, 1); assert(!err);
+  err = setElement(test_one, 1, 2, 2); assert(!err);
+  err = setElement(test_one, 1, 3, 3); assert(!err);
+  err = setElement(test_one, 2, 1, 2); assert(!err);
+  err = setElement(test_one, 2, 2, 4); assert(!err);
+  err = setElement(test_one, 2, 3, 6); assert(!err);
+  err = setElement(test_one, 3, 1, 3); assert(!err);
+  err = setElement(test_one, 3, 2, 6); assert(!err);
+  err = setElement(test_one, 3, 3, 9); assert(!err);
+  err = symmetric(test_one);
+  if(!err){
+    printf("Test one Matrix is not symmetric\n");
+  }else{
+    printf("Test one is symmetric:\n");
+    err = printMatrix(test_one); assert(!err);
+  }
+  test_two = newMatrix(4, 4); assert(test_two);
+  err = setElement(test_two, 1, 1, 1); assert(!err);
+  err = setElement(test_two, 1, 2, 2); assert(!err);
+  err = setElement(test_two, 1, 3, 3); assert(!err);
+  err = setElement(test_two, 1, 4, 4); assert(!err);
+  err = setElement(test_two, 2, 1, 2); assert(!err);
+  err = setElement(test_two, 2, 2, 4); assert(!err);
+  err = setElement(test_two, 2, 3, 6); assert(!err);
+  err = setElement(test_two, 2, 4, 8); assert(!err);
+  err = setElement(test_two, 3, 1, 3); assert(!err);
+  err = setElement(test_two, 3, 2, 6); assert(!err);
+  err = setElement(test_two, 3, 3, 9); assert(!err);
+  err = setElement(test_two, 3, 4, 12); assert(!err);
+  err = setElement(test_two, 4, 1, 4); assert(!err);
+  err = setElement(test_two, 4, 2, 8); assert(!err);
+  err = setElement(test_two, 4, 3, 12); assert(!err);
+  err = setElement(test_two, 4, 4, 16); assert(!err);
+  err = symmetric(test_two);
+  if(!err){
+    printf("Test two is not symmetric\n");
+  }else{
+    printf("test two is symmetric:\n");
+    err = printMatrix(test_two); assert(!err);
+  }
+
+  deleteMatrix(test_one);
+  deleteMatrix(test_two);
 }
 
 void testGetColumnGetRow(void) {
+  matrix * test_one, * test_two;
+  matrix * column_matrix_one, * column_matrix_two, * column_matrix_three, * column_matrix_four;
+  matrix * row_matrix_one, * row_matrix_two, * row_matrix_three, * row_matrix_four;
+  int err; 
+  test_one = newMatrix(3, 3); assert(test_one);
+  err = setElement(test_one, 1, 1, 9); assert(!err);
+  err = setElement(test_one, 1, 2, 18); assert(!err);
+  err = setElement(test_one, 1, 3, 52); assert(!err);
+  err = setElement(test_one, 2, 1, 14); assert(!err);
+  err = setElement(test_one, 2, 2, 108); assert(!err);
+  err = setElement(test_one, 2, 3, 100.54); assert(!err);
+  err = setElement(test_one, 3, 1, 4); assert(!err);
+  err = setElement(test_one, 3, 2, 98); assert(!err);
+  err = setElement(test_one, 3, 3, 56); assert(!err);
+  printf("test one matrix:\n");
+  err = printMatrix(test_one); assert(!err);
+  column_matrix_one = getColumn(test_one, 1); assert(column_matrix_one);
+  column_matrix_two = getColumn(test_one, 2); assert(column_matrix_two);
+  column_matrix_three = getColumn(test_one, 3); assert(column_matrix_three);
+  printf("column matrix 1:\n");
+  err = printMatrix(column_matrix_one); assert(!err);
+  printf("column matrix 2:\n");
+  err = printMatrix(column_matrix_two); assert(!err);
+  printf("column matrix 3:\n");
+  err = printMatrix(column_matrix_three); assert(!err);
+  row_matrix_one = getRow(test_one, 1); assert(row_matrix_one);
+  row_matrix_two = getRow(test_one, 2); assert(row_matrix_two);
+  row_matrix_three = getRow(test_one, 3); assert(row_matrix_three);
+  printf("row matrix 1:\n");
+  err = printMatrix(row_matrix_one); assert(!err);
+  printf("row matrix 2:\n");
+  err = printMatrix(row_matrix_two); assert(!err);
+  printf("row matrix 3:\n");
+  err = printMatrix(row_matrix_three); assert(!err);
+  deleteMatrix(column_matrix_one);
+  deleteMatrix(column_matrix_two);
+  deleteMatrix(column_matrix_three);
+  deleteMatrix(row_matrix_one);
+  deleteMatrix(row_matrix_two);
+  deleteMatrix(row_matrix_three);
+
+  test_two = newMatrix(4, 4); assert(test_two);
+  err = setElement(test_two, 1, 1, 119); assert(!err);
+  err = setElement(test_two, 1, 2, 2102); assert(!err);
+  err = setElement(test_two, 1, 3, 321); assert(!err);
+  err = setElement(test_two, 1, 4, 43); assert(!err);
+  err = setElement(test_two, 2, 1, 290); assert(!err);
+  err = setElement(test_two, 2, 2, 40); assert(!err);
+  err = setElement(test_two, 2, 3, 656); assert(!err);
+  err = setElement(test_two, 2, 4, 8909); assert(!err);
+  err = setElement(test_two, 3, 1, 3999); assert(!err);
+  err = setElement(test_two, 3, 2, 6111); assert(!err);
+  err = setElement(test_two, 3, 3, 942); assert(!err);
+  err = setElement(test_two, 3, 4, 12000); assert(!err);
+  err = setElement(test_two, 4, 1, 400); assert(!err);
+  err = setElement(test_two, 4, 2, 8908); assert(!err);
+  err = setElement(test_two, 4, 3, 121); assert(!err);
+  err = setElement(test_two, 4, 4, 166); assert(!err);
+  printf("test two matrix:\n");
+  err = printMatrix(test_two); assert(!err);
+  column_matrix_one = getColumn(test_two, 1); assert(column_matrix_one);
+  column_matrix_two = getColumn(test_two, 2); assert(column_matrix_two);
+  column_matrix_three = getColumn(test_two, 3); assert(column_matrix_three);
+  column_matrix_four = getColumn(test_two, 4); assert(column_matrix_four);
+  printf("column matrix 1:\n");
+  err = printMatrix(column_matrix_one); assert(!err);
+  printf("column matrix 2:\n");
+  err = printMatrix(column_matrix_two); assert(!err);
+  printf("column matrix 3:\n");
+  err = printMatrix(column_matrix_three); assert(!err);
+  printf("column matrix 4:\n");
+  err = printMatrix(column_matrix_four); assert(!err);
+  row_matrix_one = getRow(test_two, 1); assert(row_matrix_one);
+  row_matrix_two = getRow(test_two, 2); assert(row_matrix_two);
+  row_matrix_three = getRow(test_two, 3); assert(row_matrix_three);
+  row_matrix_four = getRow(test_two, 4); assert(row_matrix_four);
+  printf("row matrix 1:\n");
+  err = printMatrix(row_matrix_one); assert(!err);
+  printf("row matrix 2:\n");
+  err = printMatrix(row_matrix_two); assert(!err);
+  printf("row matrix 3:\n");
+  err = printMatrix(row_matrix_three); assert(!err);
+  printf("row matrix 4:\n");
+  err = printMatrix(row_matrix_four); assert(!err);
+  deleteMatrix(column_matrix_one);
+  deleteMatrix(column_matrix_two);
+  deleteMatrix(column_matrix_three);
+  deleteMatrix(column_matrix_four);
+  deleteMatrix(row_matrix_one);
+  deleteMatrix(row_matrix_two);
+  deleteMatrix(row_matrix_three);
+  deleteMatrix(row_matrix_four);
+
+  deleteMatrix(test_one);
+  deleteMatrix(test_two);
 }
 
 void testScalarProduct(void) {
+  matrix * test_one, * test_two;
+  int err; 
+  test_one = newMatrix(3, 3); assert(test_one);
+  err = setElement(test_one, 1, 1, 1); assert(!err);
+  err = setElement(test_one, 1, 2, 1); assert(!err);
+  err = setElement(test_one, 1, 3, 1); assert(!err);
+  err = setElement(test_one, 2, 1, 1); assert(!err);
+  err = setElement(test_one, 2, 2, 1); assert(!err);
+  err = setElement(test_one, 2, 3, 1); assert(!err);
+  err = setElement(test_one, 3, 1, 1); assert(!err);
+  err = setElement(test_one, 3, 2, 1); assert(!err);
+  err = setElement(test_one, 3, 3, 1); assert(!err);
+  printf("test one matrix:\n");
+  err = printMatrix(test_one); assert(!err);
+  err = scalarProduct(9, test_one); assert(!err);
+  printf("test one matrix after scalar of 9:\n");
+  err = printMatrix(test_one); assert(!err);
+
+    test_two = newMatrix(4, 4); assert(test_two);
+  err = setElement(test_two, 1, 1, 1); assert(!err);
+  err = setElement(test_two, 1, 2, 2); assert(!err);
+  err = setElement(test_two, 1, 3, 3); assert(!err);
+  err = setElement(test_two, 1, 4, 4); assert(!err);
+  err = setElement(test_two, 2, 1, 5); assert(!err);
+  err = setElement(test_two, 2, 2, 6); assert(!err);
+  err = setElement(test_two, 2, 3, 7); assert(!err);
+  err = setElement(test_two, 2, 4, 8); assert(!err);
+  err = setElement(test_two, 3, 1, 9); assert(!err);
+  err = setElement(test_two, 3, 2, 10); assert(!err);
+  err = setElement(test_two, 3, 3, 11); assert(!err);
+  err = setElement(test_two, 3, 4, 12); assert(!err);
+  err = setElement(test_two, 4, 1, 13); assert(!err);
+  err = setElement(test_two, 4, 2, 14); assert(!err);
+  err = setElement(test_two, 4, 3, 15); assert(!err);
+  err = setElement(test_two, 4, 4, 16); assert(!err);
+
+  printf("test two matrix:\n");
+  err = printMatrix(test_two); assert(!err);
+  err = scalarProduct(9815.36789, test_two); assert(!err);
+  printf("test two matrix after scalar of 9815.36789:\n");
+  err = printMatrix(test_two); assert(!err);
+
+  deleteMatrix(test_one);
+  deleteMatrix(test_two);
 }
 
 /**********************************************************************
@@ -320,7 +505,7 @@ matrix * copyMatrix(matrix const * mtx) {
 }
 
 int setElement(matrix * mtx, int row, int col,
-               double val) {
+              double val) {
   int err = badArgs(mtx, row, col);
   if (err) return err;
   setE(mtx, row, col, val);
@@ -484,9 +669,25 @@ int diagonal(matrix const * v, matrix * mtx) {
  */
 int symmetric(matrix const * mtx){
   if(!mtx){
-    return -1;
+    return 0;
   }
-  return (*mtx).rows != (*mtx).cols ? 0: 1;
+  double test_element_one = 0;
+  double test_element_two = 0;
+  if((*mtx).rows == (*mtx).cols){
+    for(int i = 1; i <= (*mtx).cols; i++){
+      for(int j = 1; j <= (*mtx).rows; j++){
+        if(i == j){
+          continue;
+        }
+        getElement(mtx, i, j, &test_element_one);
+        getElement(mtx, j, i, &test_element_two);
+        if(test_element_one == test_element_two){
+          continue;
+        }else{return 0;}
+      }
+    }
+  }else{return 0;}
+  return 1;
 }
 
 /* Returns column col of mtx as a new vector. Returns NULL
@@ -497,15 +698,15 @@ matrix * getColumn(matrix const * mtx, int col){
   if(!mtx || (*mtx).cols < col){
     return NULL;
   }
-  matrix * col_matrix = newMatrix(1, col);
   int rows = (*mtx).rows;
+  matrix * col_matrix = newMatrix(rows, 1);
   double element = 0;
-  for(int i = 0; i < rows; i++){
-    getElement(mtx, i+1, col, &element);
-    (*col_matrix).data[i] = element;
+  for(int i = 1; i <= rows; i++){
+    getElement(mtx, i, col, &element);
+    (*col_matrix).data[i-1] = element;
     element = 0;
   }
-  if(printMatrix(col_matrix)) return NULL;
+  // if(printMatrix(col_matrix)) return NULL;
   return col_matrix;
 }
 
@@ -517,17 +718,15 @@ matrix * getRow(matrix const * mtx, int row){
   if(!mtx || (*mtx).rows < row){
     return NULL;
   }
-
-  matrix * row_matrix = newMatrix(row, 1);
-  if(row_matrix == NULL) return NULL;
   int cols = (*mtx).cols;
+  matrix * row_matrix = newMatrix(1, cols);
+  if(row_matrix == NULL) return NULL;
   double element = 0;
-  for(int i = 0; i < cols; i++){
-    getElement(mtx, row, i+1, &element);
-    (*row_matrix).data[i] = element;
+  for(int i = 1; i <= cols; i++){
+    getElement(mtx, row, i, &element);
+    (*row_matrix).data[i-1] = element;
     element = 0;
   }
-  if(printMatrix(row_matrix)) return NULL;
   return row_matrix;
 }
 
@@ -535,6 +734,11 @@ matrix * getRow(matrix const * mtx, int row){
  * with s. Returns -1 if mtx is NULL and 0 otherwise.
  */
 int scalarProduct(double s, matrix * mtx){
+  if(!mtx){return -1;}
+  for(int i = 1; i <=(*mtx).cols; i++){
+    for (int j = 1; j <=(*mtx).rows; j++){
+      setElement(mtx, i, j, ((*mtx).data[((j-1) * mtx->rows + i - 1)] * s));
+    }
+  }
   return 0;
-
 }
